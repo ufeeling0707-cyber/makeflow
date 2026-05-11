@@ -120,7 +120,7 @@ export const useGetConfig: useQueryFunctionType<
           data.webhook_polling_interval ?? DEFAULT_POLLING_INTERVAL,
         );
         setWebhookAuthEnable(data.webhook_auth_enable ?? true);
-        setDefaultFolderName(data.default_folder_name ?? "Starter Project");
+        setDefaultFolderName(data.default_folder_name ?? "Project");
         setHideGettingStartedProgress(
           data.hide_getting_started_progress ?? false,
         );

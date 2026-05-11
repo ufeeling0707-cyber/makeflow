@@ -233,7 +233,7 @@ lint: install_backend ## run linters
 
 
 
-run_clic: clean_frontend_build install_frontend install_backend build_frontend ## run the CLI with fresh frontend build
+run_clic: setup_env clean_frontend_build install_frontend install_backend build_frontend ## run the CLI with fresh frontend build
 	@echo 'Running the CLI with fresh frontend build'
 	@uv run langflow run \
 		--frontend-path $(path) \
@@ -243,7 +243,7 @@ run_clic: clean_frontend_build install_frontend install_backend build_frontend #
 		$(if $(env),--env-file $(env),) \
 		$(if $(filter false,$(open_browser)),--no-open-browser)
 
-run_cli: install_frontend install_backend build_frontend ## run the CLI quickly (without cleaning build cache)
+run_cli: setup_env install_frontend install_backend build_frontend ## run the CLI quickly (without cleaning build cache)
 	@echo 'Running the CLI quickly (reusing existing build cache if available)'
 	@uv run langflow run \
 		--frontend-path $(path) \

@@ -585,7 +585,7 @@ export const USER_PROJECTS_HEADER = "My Collection";
 
 // This will be dynamically set based on the RUN_WITH_OPENRAG feature flag
 // The actual value is determined by the backend configuration
-export const DEFAULT_FOLDER = "Starter Project";
+export const DEFAULT_FOLDER = "Project";
 export const OPENRAG_FOLDER = "OpenRAG";
 
 export const MAX_MCP_SERVER_NAME_LENGTH = 30;

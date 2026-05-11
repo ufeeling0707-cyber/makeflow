@@ -13,8 +13,6 @@ import {
 } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { useShallow } from "zustand/react/shallow";
-import ForwardedIconComponent from "@/components/common/genericIconComponent";
-import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -22,6 +20,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import SkeletonGroup from "@/components/ui/skeletonGroup";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs-button";
 import { useGetMCPServers } from "@/controllers/API/queries/mcp/use-get-mcp-servers";
 import {
   ENABLE_KNOWLEDGE_BASES,
@@ -599,6 +598,13 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
     });
   const showVersions =
     ENABLE_NEW_SIDEBAR && activeSection === "versions" && sidebarOpen;
+  const sidebarTabValue = activeSection === "bundles" ? "bundles" : "blocks";
+  const showBlocksBundlesTabs =
+    ENABLE_NEW_SIDEBAR &&
+    sidebarOpen &&
+    !showVersions &&
+    activeSection !== "mcp" &&
+    activeSection !== "traces";
 
   const currentFlowForVersions = useFlowStore((state) => state.currentFlow);
 
@@ -728,6 +734,27 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
                   resetFilters={resetFilters}
                 />
               )}
+              {showBlocksBundlesTabs && (
+                <Tabs
+                  value={sidebarTabValue}
+                  onValueChange={(value) => {
+                    setActiveSection(
+                      value === "bundles" ? "bundles" : "components",
+                    );
+                    setOpen(true);
+                  }}
+                  className="group-data-[collapsible=icon]:hidden"
+                >
+                  <TabsList className="mx-3 mt-3 grid w-auto grid-cols-2">
+                    <TabsTrigger value="blocks">
+                      {t("sidebar.components")}
+                    </TabsTrigger>
+                    <TabsTrigger value="bundles">
+                      {t("sidebar.bundles")}
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              )}
 
               <SidebarContent
                 segmentedSidebar={ENABLE_NEW_SIDEBAR}
@@ -745,7 +772,8 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
                   </div>
                 ) : (
                   <>
-                    {hasResults ? (
+                    {hasResults &&
+                    (showComponents || showBundles || showMcp) ? (
                       <>
                         {showComponents && !isMcpTabActive && (
                           <CategoryGroup
@@ -804,21 +832,6 @@ export function FlowSidebarComponent({ isLoading }: FlowSidebarComponentProps) {
                             showConfig={showConfig}
                             setShowConfig={setShowConfig}
                           />
-                        )}
-                        {showComponents && (
-                          <Button
-                            onClick={() => setActiveSection("bundles")}
-                            variant="ghost"
-                            className="bg-muted hover:bg-muted/70 mx-3 px-2.5 !text-[13px] font-normal line-height-[16px] mb-3 group -mt-3 h-[34px]"
-                          >
-                            <span className="text-muted-foreground flex items-center">
-                              <ForwardedIconComponent
-                                name="blocks"
-                                className="h-4 w-4"
-                              />
-                            </span>
-                            {t("sidebar.discoverMore")}
-                          </Button>
                         )}
                       </>
                     ) : (

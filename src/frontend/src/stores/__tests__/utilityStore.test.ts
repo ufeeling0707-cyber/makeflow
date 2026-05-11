@@ -40,7 +40,7 @@ describe("useUtilityStore", () => {
       currentSessionId: "",
       eventDelivery: EventDeliveryType.POLLING,
       webhookAuthEnable: true,
-      defaultFolderName: "Starter Project",
+      defaultFolderName: "Project",
       hideGettingStartedProgress: false,
     });
   });
@@ -63,7 +63,7 @@ describe("useUtilityStore", () => {
       expect(result.current.currentSessionId).toBe("");
       expect(result.current.eventDelivery).toBe(EventDeliveryType.POLLING);
       expect(result.current.webhookAuthEnable).toBe(true);
-      expect(result.current.defaultFolderName).toBe("Starter Project");
+      expect(result.current.defaultFolderName).toBe("Project");
       expect(result.current.hideGettingStartedProgress).toBe(false);
     });
   });
@@ -589,7 +589,7 @@ describe("useUtilityStore", () => {
       const { result } = renderHook(() => useUtilityStore());
 
       const folderNames = [
-        "Starter Project",
+        "Project",
         "OpenRAG",
         "My Collection",
         "Custom Folder",

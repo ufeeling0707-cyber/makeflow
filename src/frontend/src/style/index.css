@@ -34,8 +34,8 @@
     --primary-hover: 240 4% 16%; /* hsl(240, 4%, 16%) */
     --secondary-hover: 240 6% 90%; /* hsl(240, 6%, 90%) */
     --placeholder-foreground: 240 5% 65%; /* hsl(240, 5%, 65%) */
-    --canvas: 210 20% 98%; /* hsl(210, 20%, 98%) */
-    --canvas-dot: 214 14% 79%; /* hsl(214, 14%, 79%) */
+    --canvas: 199 100% 93%; /* hsl(199, 100%, 93%) */
+    --canvas-dot: 204 34% 70%; /* hsl(204, 34%, 70%) */
     --accent-emerald: 149 80% 90%; /* hsl(149, 80%, 90%) */
     --accent-emerald-foreground: 161 94% 30%; /* hsl(161, 94%, 30%) */
     --accent-emerald-hover: 152.4 76% 80.4%; /* hsl(152.4, 76%, 80.4%) */
@@ -232,8 +232,8 @@
     --primary-hover: 240 6% 90%; /* hsl(240, 6%, 90%) */
     --secondary-hover: 240 4% 16%; /* hsl(240, 4%, 16%) */
     --placeholder-foreground: 240 4% 46%; /* hsl(240, 4%, 46%) */
-    --canvas: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --canvas-dot: 240 5.3% 26.1%; /* hsl(240, 5.3%, 26.1%) */
+    --canvas: 199 100% 93%; /* hsl(199, 100%, 93%) */
+    --canvas-dot: 204 34% 70%; /* hsl(204, 34%, 70%) */
 
     --accent-emerald: 164 86% 16%; /* hsl(164, 86%, 16%) */
     --accent-emerald-foreground: 158 64% 52%; /* hsl(158, 64%, 52%) */

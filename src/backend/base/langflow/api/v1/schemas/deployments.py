@@ -391,7 +391,7 @@ class DeploymentCreateRequest(BaseModel):
     type: DeploymentType = Field(description="Deployment type.")
     project_id: UUID | None = Field(
         default=None,
-        description="Langflow DB project id to persist the deployment under. Defaults to user's Starter Project.",
+        description="Langflow DB project id to persist the deployment under. Defaults to user's Project.",
     )
     provider_data: dict[str, Any] | None = Field(
         default=None,

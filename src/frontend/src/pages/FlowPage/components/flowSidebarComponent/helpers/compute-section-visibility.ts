@@ -30,12 +30,19 @@ export function computeSectionVisibility(
     (enableNewSidebar &&
       hasCoreComponents &&
       (activeSection === "components" || activeSection === "search")) ||
-    (hasSearchInput && hasCoreComponents && enableNewSidebar) ||
+    (hasSearchInput &&
+      hasCoreComponents &&
+      enableNewSidebar &&
+      activeSection !== "bundles" &&
+      activeSection !== "mcp") ||
     !enableNewSidebar;
 
   const showBundles =
     (hasBundleItems && enableNewSidebar && activeSection === "bundles") ||
-    (hasSearchInput && hasBundleItems && enableNewSidebar) ||
+    (hasSearchInput &&
+      hasBundleItems &&
+      enableNewSidebar &&
+      activeSection === "bundles") ||
     !enableNewSidebar;
 
   const showMcp =

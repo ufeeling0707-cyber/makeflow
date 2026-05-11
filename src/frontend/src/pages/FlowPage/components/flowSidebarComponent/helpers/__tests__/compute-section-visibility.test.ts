@@ -94,7 +94,7 @@ describe("computeSectionVisibility", () => {
       expect(result.isMcpTabActive).toBe(false);
     });
 
-    it("should show bundles during search when bundle items match", () => {
+    it("should not show bundles during search while the Blocks tab is active", () => {
       const result = computeSectionVisibility({
         ...baseInput,
         activeSection: "search",
@@ -102,7 +102,19 @@ describe("computeSectionVisibility", () => {
         hasBundleItems: true,
       });
 
+      expect(result.showBundles).toBe(false);
+    });
+
+    it("should show bundles during search while the Bundles tab is active", () => {
+      const result = computeSectionVisibility({
+        ...baseInput,
+        activeSection: "bundles",
+        hasSearchInput: true,
+        hasBundleItems: true,
+      });
+
       expect(result.showBundles).toBe(true);
+      expect(result.showComponents).toBe(false);
     });
 
     // Regression: searching for "Agent" with MCP servers configured should
@@ -122,7 +134,7 @@ describe("computeSectionVisibility", () => {
       expect(result.isMcpTabActive).toBe(false);
     });
 
-    it("should show all sections when search matches everything", () => {
+    it("should show Blocks and MCP when search matches everything in the Blocks tab", () => {
       const result = computeSectionVisibility({
         ...baseInput,
         activeSection: "search",
@@ -134,7 +146,7 @@ describe("computeSectionVisibility", () => {
 
       expect(result.showComponents).toBe(true);
       expect(result.showMcp).toBe(true);
-      expect(result.showBundles).toBe(true);
+      expect(result.showBundles).toBe(false);
       expect(result.isMcpTabActive).toBe(false);
     });
 
