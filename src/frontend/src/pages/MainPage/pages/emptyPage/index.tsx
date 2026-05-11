@@ -1,4 +1,4 @@
-import LangflowLogo from "@/assets/LangflowLogo.svg?react";
+import MakeFlowLogo from "@/assets/MakeFlowLogo.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import CardsWrapComponent from "@/components/core/cardsWrapComponent";
 import { Button } from "@/components/ui/button";
@@ -15,24 +15,24 @@ export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
 
   return (
     <CardsWrapComponent
-      dragMessage={`Drop your flows or components here`}
+      dragMessage="Workflow 또는 Blocks 파일을 여기에 놓으세요"
       onFileDrop={handleFileDrop}
     >
       <div className="m-0 h-full w-full bg-secondary p-0">
         <div className="text-container">
           <div className="relative z-20 flex w-full flex-col items-center justify-center gap-2">
-            <LangflowLogo className="h-7 w-8" />
+            <MakeFlowLogo className="h-7 w-8" />
             <h3
               className="pt-5 font-chivo text-2xl font-semibold text-foreground"
               data-testid="mainpage_title"
             >
-              {folders?.length > 1 ? "Empty project" : "Start building"}
+              {folders?.length > 1 ? "빈 프로젝트" : "Workflow 시작하기"}
             </h3>
             <p
               data-testid="empty-project-description"
               className="pb-5 text-sm text-secondary-foreground"
             >
-              Begin with a template, or start from scratch.
+              템플릿으로 빠르게 시작하거나 빈 Workflow를 구성하세요.
             </p>
             <Button
               variant="default"
@@ -46,7 +46,7 @@ export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
                 className="h-4 w-4"
               />
               <span className="hidden whitespace-nowrap font-semibold md:inline">
-                New Flow
+                Workflow 만들기
               </span>
             </Button>
           </div>

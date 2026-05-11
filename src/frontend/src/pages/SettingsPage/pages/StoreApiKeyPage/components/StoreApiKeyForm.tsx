@@ -59,24 +59,16 @@ const StoreApiKeyFormComponent = ({
                     value={apikey}
                     isForm
                     password={true}
-                    placeholder="Insert your API Key"
+                  placeholder="Access Key 입력"
                     className="w-full"
                   />
                   <Form.Message match="valueMissing" className="field-invalid">
-                    Please enter your API Key
+                    Access Key를 입력하세요
                   </Form.Message>
                 </Form.Field>
               </div>
               <span className="pr-1 text-xs text-muted-foreground">
-                {t("store.createApiKey")}{" "}
-                <a
-                  className="text-high-indigo underline"
-                  href="https://langflow.store/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  langflow.store
-                </a>
+                Template Hub 접근 권한은 관리자에게 문의하세요.
               </span>
             </div>
           </CardContent>

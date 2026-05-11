@@ -65,7 +65,7 @@ export default defineConfig(({ mode }) => {
       istanbul({
         include: "src/**/*",
         extension: [".ts", ".tsx", ".js", ".jsx"],
-        requireEnv: false,
+        requireEnv: true,
       }),
     ],
     server: {

@@ -2,6 +2,10 @@ import { memo } from "react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Badge } from "@/components/ui/badge";
 import type { FlowType } from "@/types/flow";
+import {
+  getTemplateIcon,
+  templateIconTileClassName,
+} from "@/utils/templateDisplay";
 import { cn } from "@/utils/utils";
 import type { ConnectionItem } from "../types";
 
@@ -61,10 +65,15 @@ export const FlowListPanel = memo(function FlowListPanel({
               )}
             >
               <div className="flex min-w-0 flex-1 items-center gap-3 text-left">
-                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-muted">
+                <div
+                  className={cn(
+                    "flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg",
+                    templateIconTileClassName,
+                  )}
+                >
                   <ForwardedIconComponent
-                    name={flow.icon ?? "Workflow"}
-                    className="h-4 w-4 text-muted-foreground"
+                    name={getTemplateIcon(flow.name, flow.icon ?? "Workflow")}
+                    className="h-4 w-4"
                   />
                 </div>
                 <div className="min-w-0 flex-1">

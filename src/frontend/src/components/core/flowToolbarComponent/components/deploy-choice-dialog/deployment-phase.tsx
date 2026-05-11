@@ -47,8 +47,8 @@ export default function DeploymentPhaseContent({
         <DialogTitle>Select Deployment</DialogTitle>
         <DialogDescription>
           {selectedProvider
-            ? `Deployments on ${selectedProvider.name} for this flow.`
-            : "Select a deployment to update or create a new one."}
+            ? `${selectedProvider.name}에서 이 Flow에 사용할 Deployment입니다.`
+            : "업데이트할 Deployment를 선택하거나 새로 생성합니다."}
         </DialogDescription>
       </DialogHeader>
 
@@ -94,8 +94,8 @@ export default function DeploymentPhaseContent({
               <span className="text-sm font-medium">Create new deployment</span>
               <span className="text-xs text-muted-foreground">
                 {selectedProvider
-                  ? `New deployment on ${selectedProvider.name}`
-                  : "Set up a new deployment from scratch"}
+                  ? `${selectedProvider.name}에 새 Deployment 생성`
+                  : "새 Deployment를 처음부터 설정합니다"}
               </span>
             </Label>
           </div>

@@ -14,8 +14,8 @@ import { cn, groupByFamily } from "../../../../utils/utils";
 import HandleTooltipComponent from "../HandleTooltipComponent";
 
 const BASE_HANDLE_STYLES = {
-  width: "32px",
-  height: "32px",
+  width: "22px",
+  height: "22px",
   top: "50%",
   position: "absolute" as const,
   zIndex: 30,
@@ -101,17 +101,8 @@ const HandleContent = memo(function HandleContent({
   const getNeonShadow = useCallback(
     (color: string, isActive: boolean) => {
       if (isNullHandle || isMuted) return "none";
-      if (!isActive) return `0 0 0 3px ${color}`;
-      return [
-        "0 0 0 1px hsl(var(--border))",
-        `0 0 2px ${color}`,
-        `0 0 4px ${color}`,
-        `0 0 6px ${color}`,
-        `0 0 8px ${color}`,
-        `0 0 10px ${color}`,
-        `0 0 15px ${color}`,
-        `0 0 20px ${color}`,
-      ].join(", ");
+      if (!isActive) return "0 0 0 1.5px #ffffff";
+      return `0 0 0 2px #ffffff, 0 0 0 5px ${color}33`;
     },
     [isNullHandle, isMuted],
   );
@@ -119,8 +110,8 @@ const HandleContent = memo(function HandleContent({
   const contentStyle = useMemo(
     () => ({
       background: isNullHandle ? "hsl(var(--border))" : handleColor,
-      width: isMuted && !isNullHandle ? "6px" : "10px",
-      height: isMuted && !isNullHandle ? "6px" : "10px",
+      width: isMuted && !isNullHandle ? "5px" : "8px",
+      height: isMuted && !isNullHandle ? "5px" : "8px",
       transition: "all 0.2s",
       opacity: isMuted && !isNullHandle ? 0 : 1,
       boxShadow: getNeonShadow(

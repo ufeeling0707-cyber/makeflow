@@ -26,35 +26,16 @@ export default function CrashErrorComponent({
             <CardContent className="grid">
               <div>
                 <p>
-                  Please report errors with detailed tracebacks on the{" "}
-                  <a
-                    href="https://github.com/langflow-ai/langflow/issues"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover:underline"
-                  >
-                    GitHub Issues
-                  </a>{" "}
-                  page.
+                  오류가 계속되면 상세한 traceback과 함께 관리자에게 문의하세요.
                   <br></br>
-                  Thank you!
+                  감사합니다.
                 </p>
               </div>
             </CardContent>
 
             <CardFooter>
               <div className="m-auto mt-4 flex justify-center">
-                <Button onClick={resetErrorBoundary}>Restart Langflow</Button>
-
-                <a
-                  href="https://github.com/langflow-ai/langflow/issues/new"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button className="ml-3" ignoreTitleCase variant={"outline"}>
-                    Report on GitHub
-                  </Button>
-                </a>
+                <Button onClick={resetErrorBoundary}>MakeFlow 다시 시작</Button>
               </div>
             </CardFooter>
           </Card>

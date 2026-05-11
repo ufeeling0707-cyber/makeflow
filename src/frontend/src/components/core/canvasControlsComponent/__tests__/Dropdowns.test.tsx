@@ -41,8 +41,8 @@ jest.mock("@/components/common/genericIconComponent", () => ({
 jest.mock("@/constants/constants", () => ({
   __esModule: true,
   DATASTAX_DOCS_URL: "https://docs.datastax.com",
-  DOCS_URL: "https://docs.langflow.org",
-  DESKTOP_URL: "https://desktop.langflow.org",
+  DOCS_URL: "/help",
+  DESKTOP_URL: "/",
 }));
 
 jest.mock("@/customization/feature-flags", () => ({
@@ -88,7 +88,7 @@ describe("HelpDropdown", () => {
     (window.open as jest.Mock).mockClear();
   });
 
-  it("opens docs in new tab and navigates to shortcuts", () => {
+  it("navigates to shortcuts", () => {
     const mockNavigate = jest.fn();
     (useNavigate as unknown as jest.Mock).mockReturnValue(mockNavigate);
 
@@ -98,21 +98,7 @@ describe("HelpDropdown", () => {
       </MemoryRouter>,
     );
 
-    fireEvent.click(screen.getByTestId("canvas_controls_dropdown_docs"));
-    expect(window.open).toHaveBeenCalledWith(
-      "https://docs.langflow.org",
-      "_blank",
-    );
-
     fireEvent.click(screen.getByTestId("canvas_controls_dropdown_shortcuts"));
     expect(mockNavigate).toHaveBeenCalledWith("/settings/shortcuts");
-
-    fireEvent.click(
-      screen.getByTestId("canvas_controls_dropdown_get_langflow_desktop"),
-    );
-    expect(window.open).toHaveBeenCalledWith(
-      "https://desktop.langflow.org",
-      "_blank",
-    );
   });
 });

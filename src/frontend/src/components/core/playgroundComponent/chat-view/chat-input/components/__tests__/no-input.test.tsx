@@ -70,15 +70,8 @@ describe("NoInputView", () => {
     expect(stopBuilding).toHaveBeenCalledTimes(1);
   });
 
-  it("displays instruction text with link to documentation", () => {
+  it("displays instruction text", () => {
     render(<NoInputView {...defaultProps} />);
-    expect(screen.getByText(/Add a/)).toBeInTheDocument();
-    const link = screen.getByRole("link", { name: "Chat Input" });
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute(
-      "href",
-      "https://docs.langflow.org/components-io#chat-input",
-    );
-    expect(link).toHaveAttribute("target", "_blank");
+    expect(screen.getByText(/Chat Input Block/)).toBeInTheDocument();
   });
 });

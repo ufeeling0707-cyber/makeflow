@@ -28,16 +28,16 @@ export default function UpdatePhaseContent({
       </DialogTitle>
       <DialogDescription className="sr-only">
         {isUpdating
-          ? "Your deployment is being updated."
-          : `"${deploymentName}" has been updated.`}
+          ? "Deployment를 업데이트하고 있습니다."
+          : `"${deploymentName}" 업데이트가 완료되었습니다.`}
       </DialogDescription>
       <StepDeployStatus
         phase={isUpdating ? "deploying" : "deployed"}
         deploymentName={deploymentName}
         loadingTitle="Updating..."
-        loadingDescription="Your deployment is being updated. This usually takes a few seconds."
+        loadingDescription="Deployment를 업데이트하고 있습니다. 보통 몇 초 정도 걸립니다."
         doneTitle="Deployment updated"
-        doneDescription={`"${deploymentName}" has been updated successfully.`}
+        doneDescription={`"${deploymentName}" 업데이트가 완료되었습니다.`}
       />
       {isUpdated && (
         <DialogFooter>

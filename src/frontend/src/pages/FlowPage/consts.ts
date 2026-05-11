@@ -12,5 +12,9 @@ export const nodeTypes = {
 };
 
 export const edgeTypes = {
+  bezier: DefaultEdge,
   default: DefaultEdge,
+  simplebezier: DefaultEdge,
+  smoothstep: DefaultEdge,
+  step: DefaultEdge,
 };

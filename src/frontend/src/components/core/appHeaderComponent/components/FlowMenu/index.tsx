@@ -1,5 +1,6 @@
 import { memo, useMemo, useRef, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
+import { useTranslation } from "react-i18next";
 import { useShallow } from "zustand/react/shallow";
 import IconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
@@ -11,7 +12,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useTranslation } from "react-i18next";
 import { useGetRefreshFlowsQuery } from "@/controllers/API/queries/flows/use-get-refresh-flows-query";
 import { useGetFoldersQuery } from "@/controllers/API/queries/folders/use-get-folders";
 import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
@@ -21,8 +21,11 @@ import useAlertStore from "@/stores/alertStore";
 import useFlowStore from "@/stores/flowStore";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import { useShortcutsStore } from "@/stores/shortcuts";
-import { swatchColors } from "@/utils/styleUtils";
-import { cn, getNumberFromString } from "@/utils/utils";
+import {
+  getTemplateIcon,
+  templateIconTileClassName,
+} from "@/utils/templateDisplay";
+import { cn } from "@/utils/utils";
 
 export const MenuBar = memo((): JSX.Element => {
   const { t } = useTranslation();
@@ -33,21 +36,14 @@ export const MenuBar = memo((): JSX.Element => {
   const isBuilding = useFlowStore((state) => state.isBuilding);
   const saveFlow = useSaveFlow();
   const autoSaving = useFlowsManagerStore((state) => state.autoSaving);
-  const {
-    currentFlowName,
-    currentFlowId,
-    currentFlowFolderId,
-    currentFlowIcon,
-    currentFlowGradient,
-  } = useFlowStore(
-    useShallow((state) => ({
-      currentFlowName: state.currentFlow?.name,
-      currentFlowId: state.currentFlow?.id,
-      currentFlowFolderId: state.currentFlow?.folder_id,
-      currentFlowIcon: state.currentFlow?.icon,
-      currentFlowGradient: state.currentFlow?.gradient,
-    })),
-  );
+  const { currentFlowName, currentFlowFolderId, currentFlowIcon } =
+    useFlowStore(
+      useShallow((state) => ({
+        currentFlowName: state.currentFlow?.name,
+        currentFlowFolderId: state.currentFlow?.folder_id,
+        currentFlowIcon: state.currentFlow?.icon,
+      })),
+    );
   const { updated_at: updatedAt } = useFlowsManagerStore(
     useShallow((state) => ({
       updated_at: state.currentFlow?.updated_at,
@@ -82,12 +78,6 @@ export const MenuBar = memo((): JSX.Element => {
   const changes = useShortcutsStore((state) => state.changesSave);
   useHotkeys(changes, handleSave, { preventDefault: true });
 
-  const swatchIndex =
-    (currentFlowGradient && !isNaN(parseInt(currentFlowGradient))
-      ? parseInt(currentFlowGradient)
-      : getNumberFromString(currentFlowGradient ?? currentFlowId ?? "")) %
-    swatchColors.length;
-
   return onFlowPage ? (
     <Popover open={openSettings} onOpenChange={setOpenSettings}>
       <PopoverAnchor>
@@ -103,13 +93,25 @@ export const MenuBar = memo((): JSX.Element => {
             {currentFolder?.name && (
               <div className="hidden truncate md:flex">
                 <div
-                  className="cursor-pointer truncate text-sm text-muted-foreground hover:text-primary"
+                  className="cursor-pointer truncate text-sm text-white/70 hover:text-white"
+                  role="button"
+                  tabIndex={0}
                   onClick={() => {
                     navigate(
                       currentFolder?.id
                         ? "/all/folder/" + currentFolder.id
                         : "/all",
                     );
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      navigate(
+                        currentFolder?.id
+                          ? "/all/folder/" + currentFolder.id
+                          : "/all",
+                      );
+                    }
                   }}
                 >
                   {currentFolder?.name}
@@ -118,20 +120,23 @@ export const MenuBar = memo((): JSX.Element => {
             )}
           </div>
           <div
-            className="hidden w-fit shrink-0 select-none font-normal text-muted-foreground md:flex"
+            className="hidden w-fit shrink-0 select-none font-normal text-white/60 md:flex"
             data-testid="menu_bar_separator"
           >
             /
           </div>
-          <div className={cn(`flex rounded p-1`, swatchColors[swatchIndex])}>
+          <div className={cn(`flex rounded p-1`, templateIconTileClassName)}>
             <IconComponent
-              name={currentFlowIcon ?? "Workflow"}
+              name={getTemplateIcon(
+                currentFlowName ?? "",
+                currentFlowIcon ?? "Workflow",
+              )}
               className="h-3.5 w-3.5"
             />
           </div>
           <PopoverTrigger asChild>
             <div
-              className="group relative -mr-5 flex shrink-0 cursor-pointer items-center gap-2 text-sm sm:whitespace-normal"
+              className="group relative -mr-5 flex shrink-0 cursor-pointer items-center gap-2 text-sm text-white sm:whitespace-normal"
               data-testid="menu_bar_display"
             >
               <span

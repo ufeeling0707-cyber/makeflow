@@ -17,7 +17,7 @@ export default function StepDeployStatus({
   phase,
   deploymentName,
   loadingTitle = "Deploying...",
-  loadingDescription = "Your deployment is being provisioned. This usually takes a few seconds.",
+  loadingDescription = "Deployment를 준비하고 있습니다. 보통 몇 초 정도 걸립니다.",
   doneTitle = "Deployment successful",
   doneDescription,
 }: StepDeployStatusProps) {
@@ -26,8 +26,8 @@ export default function StepDeployStatus({
   const resolvedDoneDescription =
     doneDescription ??
     (deploymentName
-      ? `"${deploymentName}" is live and ready to use.`
-      : "Your deployment is live and ready to use.");
+      ? `"${deploymentName}" Deployment가 활성화되어 사용할 준비가 되었습니다.`
+      : "Deployment가 활성화되어 사용할 준비가 되었습니다.");
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-6 py-10">

@@ -143,7 +143,7 @@ export const EditFlowSettings: React.FC<
       <Form.Field name="description">
         <div className="edit-flow-arrangement mt-2">
           <Form.Label className="text-mmd font-medium">
-            Description{setDescription ? "" : ":"}
+            설명{setDescription ? "" : ":"}
           </Form.Label>
           {isMaxDescriptionLength && (
             <span className="edit-flow-span">Character limit reached</span>
@@ -156,7 +156,7 @@ export const EditFlowSettings: React.FC<
               id="description"
               onChange={handleDescriptionChange}
               value={description!}
-              placeholder="Flow description"
+              placeholder="Flow 설명"
               data-testid="input-flow-description"
               className="mt-2 max-h-[250px] resize-none font-normal"
               rows={5}
@@ -173,11 +173,11 @@ export const EditFlowSettings: React.FC<
               description === "" ? "font-light italic" : "",
             )}
           >
-            {description === "" ? "No description" : description}
+            {description === "" ? "설명이 없습니다" : description}
           </div>
         )}
         <Form.Message match="valueMissing" className="field-invalid">
-          Please enter a description
+          설명을 입력하세요
         </Form.Message>
         <div className="mt-3">
           <div className="flex items-center gap-2">

@@ -18,7 +18,7 @@ export const SessionLogsModal = ({
   return (
     <BaseModal size="large" open={open} setOpen={setOpen} className="z-[300]">
       <BaseModal.Content>
-        <BaseModal.Header description="Inspect and edit all messages of the session.">
+        <BaseModal.Header description="이 세션의 모든 메시지를 확인하고 편집합니다.">
           <div className="flex h-fit w-32 items-center">
             <span className="pr-2">Session logs</span>
             <ForwardedIconComponent name="ScrollText" className="h-4 w-4" />

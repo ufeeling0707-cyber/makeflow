@@ -1,4 +1,5 @@
 import type { FlowType } from "@/types/flow";
+import { getTemplateIcon } from "@/utils/templateDisplay";
 import { cn } from "../../../../../utils/utils";
 import ForwardedIconComponent from "../../../../common/genericIconComponent";
 import { Card, CardHeader, CardTitle } from "../../../../ui/card";
@@ -24,7 +25,11 @@ export default function DragCardComponent({ data }: { data: FlowType }) {
                       ? "mx-0.5 h-6 w-6 text-component-icon"
                       : "h-7 w-7 flex-shrink-0 text-flow-icon",
                   )}
-                  name={data.is_component ? "ToyBrick" : "Group"}
+                  name={
+                    data.is_component
+                      ? "ToyBrick"
+                      : getTemplateIcon(data.name, data.icon ?? "Workflow")
+                  }
                 />
 
                 <div className="w-full truncate pr-3">{data.name}</div>

@@ -518,7 +518,7 @@ function GenericNode({
         className={cn(
           borderColor,
           showNode ? "w-80" : `w-48`,
-          "generic-node-div group/node relative rounded-xl border shadow-sm hover:shadow-md",
+          "generic-node-div makeflow-node group/node relative rounded-md border shadow-none hover:shadow-sm",
           !hasOutputs && "pb-4",
         )}
       >
@@ -562,7 +562,7 @@ function GenericNode({
           <div
             data-testid={"div-generic-node"}
             className={cn(
-              "flex w-full flex-1 items-center justify-between gap-2 overflow-hidden px-4 py-3",
+              "makeflow-node-header flex w-full flex-1 items-center justify-between gap-2 overflow-hidden px-3 py-2.5",
             )}
           >
             <div
@@ -574,7 +574,7 @@ function GenericNode({
                 icon={data.node?.icon}
                 isGroup={!!data.node?.flow}
               />
-              <div className="ml-3 flex flex-1 overflow-hidden">
+              <div className="ml-2.5 flex flex-1 overflow-hidden">
                 <MemoizedNodeName
                   display_name={data.node?.display_name}
                   nodeId={data.id}

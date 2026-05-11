@@ -1,8 +1,7 @@
-//import LangflowLogoColor from "@/assets/LangflowLogocolor.svg?react";
-
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useShallow } from "zustand/react/shallow";
+import MakeFlowLogoColor from "@/assets/MakeFlowLogoColor.svg?react";
 import ThemeButtons from "@/components/core/appHeaderComponent/components/ThemeButtons";
 import { useGetMessagesQuery } from "@/controllers/API/queries/messages";
 import { useDeleteSession } from "@/controllers/API/queries/messages/use-delete-sessions";
@@ -10,11 +9,10 @@ import { useGetSessionsFromFlowQuery } from "@/controllers/API/queries/messages/
 import { ENABLE_PUBLISH } from "@/customization/feature-flags";
 import { track } from "@/customization/utils/analytics";
 import { customOpenNewTab } from "@/customization/utils/custom-open-new-tab";
-import { LangflowButtonRedirectTarget } from "@/customization/utils/urls";
+import { MakeFlowButtonRedirectTarget } from "@/customization/utils/urls";
 import { isAuthenticatedPlayground } from "@/modals/IOModal/helpers/playground-auth";
 import { useUtilityStore } from "@/stores/utilityStore";
 import { swatchColors } from "@/utils/styleUtils";
-import LangflowLogoColor from "../../assets/LangflowLogoColor.svg?react";
 import IconComponent from "../../components/common/genericIconComponent";
 import ShadTooltip from "../../components/common/shadTooltipComponent";
 import { Button } from "../../components/ui/button";
@@ -304,9 +302,9 @@ export default function IOModal({
 
   const showPublishOptions = playgroundPage && ENABLE_PUBLISH;
 
-  const LangflowButtonClick = () => {
-    track("LangflowButtonClick");
-    customOpenNewTab(LangflowButtonRedirectTarget());
+  const MakeFlowButtonClick = () => {
+    track("MakeFlowButtonClick");
+    customOpenNewTab(MakeFlowButtonRedirectTarget());
   };
 
   const swatchIndex =
@@ -428,13 +426,13 @@ export default function IOModal({
                       <ThemeButtons />
                     </div>
                     <Button
-                      onClick={LangflowButtonClick}
+                      onClick={MakeFlowButtonClick}
                       variant="primary"
                       className="w-full !rounded-xl shadow-lg"
                     >
-                      <LangflowLogoColor />
+                      <MakeFlowLogoColor />
                       <div className="text-sm">
-                        {t("modal.io.builtWithLangflow")}
+                        {t("modal.io.builtWithMakeFlow")}
                       </div>
                     </Button>
                   </div>
@@ -446,14 +444,14 @@ export default function IOModal({
                 <ShadTooltip
                   styleClasses="z-50"
                   side="right"
-                  content={t("modal.io.builtWithLangflowTooltip")}
+                  content={t("modal.io.builtWithMakeFlowTooltip")}
                 >
                   <Button
                     variant="primary"
                     className="h-12 w-12 !rounded-xl !p-4 shadow-lg"
-                    onClick={LangflowButtonClick}
+                    onClick={MakeFlowButtonClick}
                   >
-                    <LangflowLogoColor className="h-[18px] w-[18px] scale-150" />
+                    <MakeFlowLogoColor className="h-[18px] w-[18px] scale-150" />
                   </Button>
                 </ShadTooltip>
               </div>

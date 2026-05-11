@@ -168,7 +168,7 @@ export const EDIT_DIALOG_SUBTITLE =
  * @constant
  */
 export const CODE_PROMPT_DIALOG_SUBTITLE =
-  "Edit your Python code snippet. Refer to the Langflow documentation for more information on how to write your own component.";
+  "Edit your Python code snippet for a custom MakeFlow Block.";
 
 export const CODE_DICT_DIALOG_SUBTITLE =
   "Customize your dictionary, adding or editing key-value pairs as needed. Supports adding new objects {} or arrays [].";
@@ -267,13 +267,13 @@ export const DESCRIPTIONS: string[] = [
   "Your Hub for Text Generation.",
   "Promptly Ingenious!",
   "Building Linguistic Labyrinths.",
-  "Langflow: Create, Chain, Communicate.",
+  "MakeFlow: Create, Chain, Communicate.",
   "Connect the Dots, Craft Language.",
   "Interactive Language Weaving.",
   "Generate, Innovate, Communicate.",
   "Conversation Catalyst Engine.",
   "Language Chainlink Master.",
-  "Design Dialogues with Langflow.",
+  "Design Dialogues with MakeFlow.",
   "Nurture NLP Nodes Here.",
   "Conversational Cartography Unlocked.",
   "Design, Develop, Dialogize.",
@@ -668,7 +668,7 @@ export const TIMEOUT_ERROR_DESCRIPION = "Server is busy.";
 export const SIGN_UP_SUCCESS = "Account created! Await admin activation. ";
 
 export const API_PAGE_PARAGRAPH =
-  "Your secret Langflow API keys are listed below. Do not share your API key with others, or expose it in the browser or other client-side code.";
+  "MakeFlow Access Key 목록입니다. Access Key를 다른 사람과 공유하거나 브라우저 및 클라이언트 코드에 노출하지 마세요.";
 
 export const API_PAGE_USER_KEYS =
   "This user does not have any keys assigned at the moment.";
@@ -750,17 +750,18 @@ export const INPUT_HANDLER_HOVER = "Avaliable input components:";
 export const OUTPUT_HANDLER_HOVER = "Avaliable output components:";
 export const TEXT_INPUT_MODAL_TITLE = "Inputs";
 export const OUTPUTS_MODAL_TITLE = "Outputs";
-export const LANGFLOW_CHAT_TITLE = "Langflow Chat";
+export const LANGFLOW_CHAT_TITLE = "MakeFlow Test Run";
 export const CHAT_INPUT_PLACEHOLDER =
   "No chat input variables found. Click to run your flow.";
 export const CHAT_INPUT_PLACEHOLDER_SEND = "Send a message...";
 export const EDIT_CODE_TITLE = "Edit Code";
 export const MY_COLLECTION_DESC =
   "Manage your projects. Download and upload entire collections.";
-export const STORE_DESC = "Explore community-shared flows and components.";
-export const STORE_TITLE = "Langflow Store";
+export const STORE_DESC =
+  "업무 목적에 맞는 Agent Workflow 템플릿을 선택해 빠르게 시작하세요.";
+export const STORE_TITLE = "Template Hub";
 export const NO_API_KEY = "You don't have an API key.";
-export const INSERT_API_KEY = "Insert your Langflow API key.";
+export const INSERT_API_KEY = "MakeFlow Access Key를 입력하세요.";
 export const INVALID_API_KEY = "Your API key is not valid. ";
 export const CREATE_API_KEY = `Don't have an API key? Sign up at`;
 export const STATUS_BUILD = "Build to validate status.";
@@ -943,8 +944,7 @@ export const POLLING_MESSAGES = {
 export const BUILD_POLLING_INTERVAL = 25;
 
 export const IS_AUTO_LOGIN =
-  !getEnvVar("LANGFLOW_AUTO_LOGIN") ||
-  String(getEnvVar("LANGFLOW_AUTO_LOGIN"))?.toLowerCase() !== "false";
+  String(getEnvVar("LANGFLOW_AUTO_LOGIN", "false"))?.toLowerCase() === "true";
 
 export const AUTO_LOGIN_RETRY_DELAY = 2000;
 export const AUTO_LOGIN_MAX_RETRY_DELAY = 60000;
@@ -989,14 +989,13 @@ export const OPENAI_VOICES = [
 export const DEFAULT_POLLING_INTERVAL = 5000;
 export const DEFAULT_TIMEOUT = 30000;
 export const DEFAULT_FILE_PICKER_TIMEOUT = 60000;
-export const DISCORD_URL = "https://discord.com/invite/EqksyE2EX9";
-export const GITHUB_URL = "https://github.com/langflow-ai/langflow";
-export const TWITTER_URL = "https://x.com/langflow_ai";
-export const DOCS_URL = "https://docs.langflow.org";
-export const DATASTAX_DOCS_URL =
-  "https://docs.datastax.com/en/langflow/index.html";
-export const DESKTOP_URL = "https://www.langflow.org/desktop";
-export const BUG_REPORT_URL = "https://github.com/langflow-ai/langflow/issues";
+export const DISCORD_URL = "/";
+export const GITHUB_URL = "/";
+export const TWITTER_URL = "/";
+export const DOCS_URL = "/help";
+export const DATASTAX_DOCS_URL = "/help";
+export const DESKTOP_URL = "/";
+export const BUG_REPORT_URL = "/settings";
 
 export const UUID_PARSING_ERROR = "uuid_parsing";
 

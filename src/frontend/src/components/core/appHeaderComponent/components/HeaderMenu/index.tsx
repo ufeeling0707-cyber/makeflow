@@ -21,9 +21,9 @@ export const HeaderMenuToggle = ({ children }) => (
     id="user_menu_button"
   >
     <div className="group flex items-center self-center rounded-md">
-      <div className="flex h-6 w-10 items-center justify-center rounded-full bg-background transition-colors hover:bg-muted group-hover:bg-muted">
+      <div className="flex h-6 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/15 group-hover:bg-white/15">
         <div className="relative right-1 z-10">{children}</div>
-        <ChevronsUpDown className="relative h-[14px] w-[14px] text-muted-foreground group-hover:text-primary" />
+        <ChevronsUpDown className="relative h-[14px] w-[14px] text-white/80 group-hover:text-white" />
       </div>
     </div>
   </DropdownMenuTrigger>

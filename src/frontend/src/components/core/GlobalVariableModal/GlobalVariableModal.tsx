@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ForwardedIconComponent } from "@/components/common/genericIconComponent";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -199,7 +199,7 @@ export default function GlobalVariableModal({
       onSubmit={submitForm}
       disable={disabled}
     >
-      <BaseModal.Header description="This variable will be available for use across your flows.">
+      <BaseModal.Header description="이 변수는 여러 Flow에서 사용할 수 있습니다.">
         <ForwardedIconComponent
           name="Globe"
           className="h-6 w-6 pr-1 text-primary"

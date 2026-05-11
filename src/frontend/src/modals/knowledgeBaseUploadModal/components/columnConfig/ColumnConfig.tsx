@@ -15,7 +15,7 @@ const COLUMN_CONFIG_COLUMNS: ColumnField[] = [
     sortable: true,
     filterable: true,
     formatter: FormatterType.text,
-    description: "Name of the column in the source DataFrame",
+    description: "원본 DataFrame의 컬럼 이름입니다",
     edit_mode: "inline",
   },
   {
@@ -24,7 +24,7 @@ const COLUMN_CONFIG_COLUMNS: ColumnField[] = [
     sortable: false,
     filterable: false,
     formatter: FormatterType.boolean,
-    description: "Create embeddings for this column",
+    description: "이 컬럼의 Embedding을 생성합니다",
     default: false,
     edit_mode: "inline",
   },
@@ -34,7 +34,7 @@ const COLUMN_CONFIG_COLUMNS: ColumnField[] = [
     sortable: false,
     filterable: false,
     formatter: FormatterType.boolean,
-    description: "Use this column as unique identifier",
+    description: "이 컬럼을 고유 식별자로 사용합니다",
     default: false,
     edit_mode: "inline",
   },
@@ -151,7 +151,7 @@ export function ColumnConfig({
         setIsTableModalOpen(open);
       }}
       tableTitle="Column Configuration"
-      description="Configure column behavior for the knowledge base."
+      description="Knowledge Base에서 각 컬럼이 동작하는 방식을 설정합니다."
       ref={agGrid}
       onSelectionChanged={() => {}}
       rowSelection="multiple"

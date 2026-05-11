@@ -162,7 +162,7 @@ export default function EditShortcutButton({
 
   return (
     <BaseModal open={open} setOpen={setOpen} size="x-small" disable={disable}>
-      <BaseModal.Header description={"Recording your keyboard"}>
+      <BaseModal.Header description={"키보드 입력을 기록하고 있습니다"}>
         <span className="pr-2"> Key Combination </span>
         <ForwardedIconComponent
           name="Keyboard"

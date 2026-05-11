@@ -1,7 +1,7 @@
 import { Panel, useStoreApi } from "@xyflow/react";
 import { type ReactNode, useCallback, useEffect, useState } from "react";
 import { useShallow } from "zustand/react/shallow";
-import langflowAssistantIcon from "@/assets/langflow_assistant.svg";
+import MakeFlowMark from "@/assets/MakeFlowMark.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
 import { ENABLE_INSPECTION_PANEL } from "@/customization/feature-flags";
@@ -69,7 +69,7 @@ const CanvasControls = ({
       <Panel
         data-testid="main_canvas_controls"
         className="react-flow__controls flex !flex-row items-center gap-1 !overflow-visible rounded-lg bg-background px-2 py-1 fill-foreground stroke-foreground text-primary [&>button]:border-0"
-        position="bottom-center"
+        position="top-center"
       >
         <div className="group relative">
           <span
@@ -83,30 +83,12 @@ const CanvasControls = ({
             size="icon"
             data-testid="assistant-button"
             className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-md hover:bg-muted"
+            title="MakeFlow Assistant"
             onClick={handleAssistantClick}
           >
-            {/* Muted icon - normal state */}
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="absolute inset-0 m-auto text-muted-foreground transition-opacity duration-150 group-hover:opacity-0"
-            >
-              <path
-                d="M2.1665 11.3333H3.83317L7.1665 8H8.83317L12.1665 4.66667H13.8332M7.1665 13H8.83317L12.1665 9.66667H13.8332M2.1665 6.33333H3.83317L7.1665 3H8.83317"
-                stroke="currentColor"
-                strokeWidth="1.11111"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {/* Colorful icon - hover state */}
-            <img
-              src={langflowAssistantIcon}
-              alt="Langflow Assistant"
-              className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+            <MakeFlowMark
+              title="MakeFlow Assistant"
+              className="h-5 w-5 shrink-0"
             />
           </Button>
         </div>

@@ -50,4 +50,16 @@ describe("loadLanguage", () => {
     expect(i18n.hasResourceBundle("fr", "translation")).toBe(true);
     expect(i18n.hasResourceBundle("ja", "translation")).toBe(true);
   });
+
+  it("falls back to English for unsupported browser language codes", async () => {
+    await expect(loadLanguage("ko")).resolves.toBeUndefined();
+    expect(i18n.hasResourceBundle("ko", "translation")).toBe(false);
+  });
+
+  it("normalizes regional browser language codes", async () => {
+    await loadLanguage("fr-FR");
+    await loadLanguage("zh-CN");
+    expect(i18n.hasResourceBundle("fr", "translation")).toBe(true);
+    expect(i18n.hasResourceBundle("zh-Hans", "translation")).toBe(true);
+  });
 });

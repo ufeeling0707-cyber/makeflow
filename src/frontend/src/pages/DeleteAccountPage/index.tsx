@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LangflowLogo from "@/assets/LangflowLogo.svg?react";
+import MakeFlowLogo from "@/assets/MakeFlowLogo.svg?react";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import BaseModal from "../../modals/baseModal";
@@ -18,8 +18,8 @@ export default function DeleteAccountPage() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center bg-muted">
       <div className="flex w-72 flex-col items-center justify-center gap-2">
-        <LangflowLogo
-          title="Langflow logo"
+        <MakeFlowLogo
+          title="MakeFlow logo"
           className="mb-4 h-10 w-10 scale-[1.5]"
         />
         <span className="mb-4 text-center text-2xl font-semibold text-primary">
@@ -32,7 +32,7 @@ export default function DeleteAccountPage() {
           setOpen={setShowConfirmation}
           size="x-small"
         >
-          <BaseModal.Header description="This action is irreversible and will permanently erase all your data and information associated with the account. ">
+          <BaseModal.Header description="이 작업은 되돌릴 수 없으며 계정과 연결된 모든 데이터와 정보를 영구적으로 삭제합니다.">
             <h3>Are you sure ?</h3>
           </BaseModal.Header>
           <BaseModal.Trigger>

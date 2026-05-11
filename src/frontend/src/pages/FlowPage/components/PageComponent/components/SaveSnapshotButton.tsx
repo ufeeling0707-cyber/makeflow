@@ -54,7 +54,7 @@ export default function SaveSnapshotButton({
     <CanvasBanner
       icon="BookMarked"
       title="Save a version of your flow"
-      description="Capture the current state as a restore point"
+      description="현재 상태를 복원 지점으로 저장합니다"
       actionSlot={
         <div className="flex items-center gap-2">
           <CanvasBannerButton variant="outline" onClick={handleDismiss}>

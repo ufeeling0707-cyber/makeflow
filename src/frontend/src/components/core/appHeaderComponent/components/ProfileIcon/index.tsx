@@ -1,6 +1,6 @@
 import { useContext } from "react";
+import defaultProfileAvatar from "@/assets/default-profile-avatar.svg";
 import { AuthContext } from "@/contexts/authContext";
-import { BASE_URL_API } from "@/customization/config-constants";
 
 interface ProfileIconProps {
   className?: string;
@@ -8,16 +8,23 @@ interface ProfileIconProps {
 
 export function ProfileIcon({ className }: ProfileIconProps = {}) {
   const { userData } = useContext(AuthContext);
+  const profileImage = userData?.profile_image;
 
-  const profileImageUrl = `${BASE_URL_API}files/profile_pictures/${
-    userData?.profile_image ?? "Space/046-rocket.svg"
-  }`;
+  const profileImageUrl =
+    profileImage?.startsWith("data:image/") ||
+    profileImage?.startsWith("http") ||
+    profileImage?.startsWith("/")
+      ? profileImage
+      : defaultProfileAvatar;
 
   return (
     <img
       src={profileImageUrl}
       alt="User"
-      className={className ?? "h-6 w-6 shrink-0 focus-visible:outline-0"}
+      className={
+        className ??
+        "h-6 w-6 shrink-0 rounded-full object-cover focus-visible:outline-0"
+      }
     />
   );
 }

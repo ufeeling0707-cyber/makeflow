@@ -19,7 +19,7 @@ const TYPE_OPTIONS = [
   {
     type: "agent" as const,
     label: "Agent",
-    description: "Conversational agent with chat interface and tool calling",
+    description: "Chat 인터페이스와 Tool Calling을 사용하는 대화형 Agent입니다",
     icon: "MessageSquare",
     iconBg: "border-accent-pink-foreground/20 bg-accent-pink-foreground/20",
   },
@@ -149,7 +149,7 @@ export default function StepType() {
         />
         {isEditMode && (
           <span className="mt-1 text-xs text-muted-foreground">
-            Name cannot be changed after creation.
+            생성 후에는 이름을 변경할 수 없습니다.
           </span>
         )}
       </div>
@@ -198,9 +198,9 @@ export default function StepType() {
       </div>
 
       <div className="flex flex-col">
-        <span className="pb-2 text-sm font-medium">Description</span>
+        <span className="pb-2 text-sm font-medium">설명</span>
         <Textarea
-          placeholder="Describe the agent's purpose..."
+          placeholder="Agent의 목적을 입력하세요..."
           rows={3}
           className="resize-none bg-muted placeholder:text-placeholder-foreground"
           value={deploymentDescription}

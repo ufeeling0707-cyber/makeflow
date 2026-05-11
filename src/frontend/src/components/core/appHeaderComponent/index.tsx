@@ -1,14 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlertDropdown from "@/alerts/alertDropDown";
-import LangflowLogo from "@/assets/LangflowLogo.svg?react";
+import MakeFlowMark from "@/assets/MakeFlowMark.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
-import ModelProviderCount from "@/components/common/modelProviderCountComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import CustomAccountMenu from "@/customization/components/custom-AccountMenu";
-import CustomLangflowCounts from "@/customization/components/custom-langflow-counts";
 import { CustomOrgSelector } from "@/customization/components/custom-org-selector";
 import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
 import useTheme from "@/customization/hooks/use-custom-theme";
@@ -51,7 +49,7 @@ export default function AppHeader(): JSX.Element {
 
   return (
     <div
-      className={`z-10 flex h-[48px] w-full items-center justify-between border-b pr-5 pl-2.5 dark:bg-background`}
+      className={`z-10 flex h-[48px] w-full items-center justify-between border-b border-slate-900 bg-slate-950 pr-5 pl-2.5 text-white dark:bg-slate-950`}
       data-testid="app-header"
     >
       {/* Left Section */}
@@ -62,10 +60,14 @@ export default function AppHeader(): JSX.Element {
         <Button
           unstyled
           onClick={() => navigate("/")}
-          className="mr-1 flex h-8 w-8 items-center"
+          className="mr-2 flex h-8 shrink-0 items-center justify-center gap-2 px-1"
           data-testid="icon-ChevronLeft"
+          aria-label="MakeFlow home"
         >
-          <LangflowLogo className="h-5 w-5" />
+          <MakeFlowMark className="h-7 w-7 shrink-0" />
+          <span className="whitespace-nowrap text-[15px] font-semibold leading-none tracking-normal text-white">
+            MakeFlow
+          </span>
         </Button>
         <CustomOrgSelector />
       </div>
@@ -80,10 +82,6 @@ export default function AppHeader(): JSX.Element {
         className={`relative left-3 z-30 flex shrink-0 items-center gap-3`}
         data-testid="header_right_section_wrapper"
       >
-        {false && <ModelProviderCount />}
-        <div className="hidden pr-2 whitespace-nowrap lg:inline-flex lg:items-center">
-          <CustomLangflowCounts />
-        </div>
         <AlertDropdown
           notificationRef={notificationContentRef}
           onClose={() => setActiveState(null)}
@@ -104,14 +102,14 @@ export default function AppHeader(): JSX.Element {
                 }
                 data-testid="notification_button"
               >
-                <div className="hit-area-hover group relative items-center rounded-md px-2 py-2 text-muted-foreground">
+                <div className="hit-area-hover group relative items-center rounded-md px-2 py-2 text-white/80">
                   <span className={getNotificationBadge()} />
                   <ForwardedIconComponent
                     name="Bell"
                     className={`side-bar-button-size h-4 w-4 ${
                       activeState === "notifications"
-                        ? "text-primary"
-                        : "text-muted-foreground group-hover:text-primary"
+                        ? "text-white"
+                        : "text-white/80 group-hover:text-white"
                     }`}
                     strokeWidth={2}
                   />
@@ -125,7 +123,7 @@ export default function AppHeader(): JSX.Element {
         </AlertDropdown>
         <Separator
           orientation="vertical"
-          className="my-auto h-7 dark:border-border"
+          className="my-auto h-7 border-white/20 dark:border-white/20"
         />
 
         <div className="flex">

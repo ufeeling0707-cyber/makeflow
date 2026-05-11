@@ -8,6 +8,7 @@ import type { storeComponent } from "../../../types/store";
 import cloneFLowWithParent, {
   getInputsAndOutputs,
 } from "../../../utils/storeUtils";
+import { getTemplateIcon } from "../../../utils/templateDisplay";
 import { cn } from "../../../utils/utils";
 import { Button } from "../../ui/button";
 import {
@@ -125,7 +126,11 @@ export default function StoreCardComponent({
                       ? "mx-0.5 h-6 w-6 text-component-icon"
                       : "h-7 w-7 flex-shrink-0 text-flow-icon",
                   )}
-                  name={data.is_component ? "ToyBrick" : "Group"}
+                  name={
+                    data.is_component
+                      ? "ToyBrick"
+                      : getTemplateIcon(data.name, data.icon ?? "Workflow")
+                  }
                 />
 
                 <ShadTooltip content={data.name}>

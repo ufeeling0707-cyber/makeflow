@@ -70,8 +70,8 @@ const SidebarSegmentedNav = () => {
   );
 
   return (
-    <div className="flex h-full flex-col border-r border-border bg-background">
-      <SidebarMenu className="gap-2 py-1">
+    <div className="flex h-full flex-col border-r border-slate-200 bg-white shadow-[1px_0_8px_rgba(15,23,42,0.05)]">
+      <SidebarMenu className="gap-1.5 py-2">
         {NAV_ITEMS.map((item) => (
           <div key={item.id}>
             <SidebarMenuItem className="px-1 pt-1">
@@ -105,8 +105,8 @@ const SidebarSegmentedNav = () => {
                   className={cn(
                     "flex h-8 w-8 items-center justify-center rounded-md p-0 transition-all duration-200",
                     activeSection === item.id
-                      ? "bg-accent text-accent-foreground"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+                      ? "bg-slate-100 text-slate-950 shadow-inner"
+                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-950",
                   )}
                   data-testid={`sidebar-nav-${item.id}`}
                 >

@@ -1,13 +1,12 @@
 import { cloneDeep } from "lodash";
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { usePostAddApiKey } from "@/controllers/API/queries/api-keys";
 import {
   useResetPassword,
   useUpdateUser,
 } from "@/controllers/API/queries/auth";
-import { useGetProfilePicturesQuery } from "@/controllers/API/queries/files";
 import { CustomTermsLinks } from "@/customization/components/custom-terms-links";
 import { ENABLE_PROFILE_ICONS } from "@/customization/feature-flags";
 import useAuthStore from "@/stores/authStore";
@@ -23,6 +22,14 @@ import useScrollToElement from "../hooks/use-scroll-to-element";
 import GeneralPageHeaderComponent from "./components/GeneralPageHeader";
 import PasswordFormComponent from "./components/PasswordForm";
 import ProfilePictureFormComponent from "./components/ProfilePictureForm";
+
+type ApiError = {
+  response?: {
+    data?: {
+      detail?: string;
+    };
+  };
+};
 
 export const GeneralPage = () => {
   const { scrollId } = useParams();
@@ -67,7 +74,7 @@ export const GeneralPage = () => {
           onError: (error) => {
             setErrorData({
               title: t("errors.saveChanges"),
-              list: [(error as any)?.response?.data?.detail],
+              list: [(error as ApiError)?.response?.data?.detail],
             });
           },
         },
@@ -75,28 +82,27 @@ export const GeneralPage = () => {
     }
   };
 
-  const handleGetProfilePictures = useGetProfilePicturesQuery();
-
   const handlePatchProfilePicture = (profile_picture) => {
-    if (profile_picture !== "") {
-      mutatePatchUser(
-        { user_id: userData!.id, user: { profile_image: profile_picture } },
-        {
-          onSuccess: () => {
-            const newUserData = cloneDeep(userData);
-            newUserData!.profile_image = profile_picture;
-            setUserData(newUserData);
-            setSuccessData({ title: t("success.changesSaved") });
-          },
-          onError: (error) => {
-            setErrorData({
-              title: t("errors.saveChanges"),
-              list: [(error as any)?.response?.data?.detail],
-            });
-          },
+    mutatePatchUser(
+      {
+        user_id: userData!.id,
+        user: { profile_image: profile_picture || null },
+      },
+      {
+        onSuccess: () => {
+          const newUserData = cloneDeep(userData);
+          newUserData!.profile_image = profile_picture || null;
+          setUserData(newUserData);
+          setSuccessData({ title: t("success.changesSaved") });
         },
-      );
-    }
+        onError: (error) => {
+          setErrorData({
+            title: t("errors.saveChanges"),
+            list: [(error as ApiError)?.response?.data?.detail],
+          });
+        },
+      },
+    );
   };
 
   useScrollToElement(scrollId);
@@ -112,7 +118,7 @@ export const GeneralPage = () => {
     onError: (error) => {
       setErrorData({
         title: t("errors.saveApiKey"),
-        list: [(error as any)?.response?.data?.detail],
+        list: [(error as ApiError)?.response?.data?.detail],
       });
       setHasApiKey(false);
       setValidApiKey(false);
@@ -143,7 +149,6 @@ export const GeneralPage = () => {
             profilePicture={profilePicture}
             handleInput={handleInput}
             handlePatchProfilePicture={handlePatchProfilePicture}
-            handleGetProfilePictures={handleGetProfilePictures}
             userData={userData}
           />
         )}

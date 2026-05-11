@@ -1,3 +1,26 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2.1665 11.3333H3.83317L7.1665 8H8.83317L12.1665 4.66667H13.8332M7.1665 13H8.83317L12.1665 9.66667H13.8332M2.1665 6.33333H3.83317L7.1665 3H8.83317" stroke="#FF3276" stroke-width="1.11111" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MakeFlow">
+  <defs>
+    <linearGradient id="makeflow-bg" x1="10" y1="8" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07111f" />
+      <stop offset="0.52" stop-color="#0f172a" />
+      <stop offset="1" stop-color="#062a2e" />
+    </linearGradient>
+    <linearGradient id="makeflow-m" x1="13" y1="16" x2="52" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67e8f9" />
+      <stop offset="0.5" stop-color="#34d399" />
+      <stop offset="1" stop-color="#60a5fa" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#makeflow-bg)" />
+  <path
+    d="M14 48V16h7.5L32 34.5 42.5 16H50v32h-8V31.2l-7.2 12.2h-5.6L22 31.2V48z"
+    fill="url(#makeflow-m)"
+  />
+  <path
+    d="M14 48V16h7.5L32 34.5 42.5 16H50v32h-8V31.2l-7.2 12.2h-5.6L22 31.2V48z"
+    fill="none"
+    stroke="rgba(255,255,255,0.42)"
+    stroke-width="1"
+    stroke-linejoin="round"
+  />
 </svg>

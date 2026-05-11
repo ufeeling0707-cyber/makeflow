@@ -230,7 +230,7 @@ export function ParameterRenderComponent({
         return (
           <TableNodeComponent
             {...baseInputProps}
-            description={templateData.info || "Add or edit data"}
+            description={templateData.info || "데이터를 추가하거나 편집합니다"}
             columns={
               templateData?.table_schema?.columns ?? templateData?.table_schema
             }
@@ -245,7 +245,7 @@ export function ParameterRenderComponent({
         return (
           <ToolsComponent
             {...baseInputProps}
-            description={templateData.info || "Add or edit data"}
+            description={templateData.info || "데이터를 추가하거나 편집합니다"}
             title={nodeClass?.display_name ?? "Tools"}
             icon={nodeClass?.icon ?? ""}
             template={nodeClass?.template}

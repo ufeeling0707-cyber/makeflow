@@ -404,8 +404,8 @@ export default function ToolsTable({
                   />
                   <div className="text-xs text-muted-foreground">
                     {isAction
-                      ? "This is the description for the tool exposed to a client."
-                      : "This is the description for the tool exposed to the agents."}
+                      ? "Client에 공개되는 Tool 설명입니다."
+                      : "Agent에 공개되는 Tool 설명입니다."}
                   </div>
                 </div>
               </div>

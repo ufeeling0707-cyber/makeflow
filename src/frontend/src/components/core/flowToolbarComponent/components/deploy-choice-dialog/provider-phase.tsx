@@ -28,8 +28,7 @@ export default function ProviderPhaseContent({
       <DialogHeader>
         <DialogTitle>Select Provider</DialogTitle>
         <DialogDescription>
-          Choose a provider environment to deploy to, or create a new deployment
-          from scratch.
+          배포할 Provider 환경을 선택하거나 새 Deployment를 생성합니다.
         </DialogDescription>
       </DialogHeader>
 

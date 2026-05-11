@@ -11,6 +11,7 @@ const ConnectionLineComponent = ({
   const handleDragging = useFlowStore((state) => state.handleDragging);
   const color = handleDragging?.color;
   const accentColor = `hsl(var(--datatype-${color}))`;
+  const middleX = fromX + (toX - fromX) / 2;
 
   return (
     <g>
@@ -23,7 +24,7 @@ const ConnectionLineComponent = ({
           stroke: handleDragging ? accentColor : "",
           ...connectionLineStyle,
         }}
-        d={`M${fromX},${fromY} C ${fromX} ${toY} ${fromX} ${toY} ${toX},${toY}`}
+        d={`M ${fromX} ${fromY} H ${middleX} V ${toY} H ${toX}`}
       />
       <circle
         cx={toX}

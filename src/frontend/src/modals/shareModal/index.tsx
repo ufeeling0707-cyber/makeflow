@@ -209,9 +209,9 @@ export default function ShareModal({
           {children ? children : <></>}
         </BaseModal.Trigger>
         <BaseModal.Header
-          description={`Publish ${
-            is_component ? "your component" : "workflow"
-          } to the Langflow Store.`}
+          description={`Template Hub에 ${
+            is_component ? "Block" : "Workflow"
+          } 템플릿으로 등록합니다.`}
         >
           <span className="pr-2">Share</span>
           <IconComponent

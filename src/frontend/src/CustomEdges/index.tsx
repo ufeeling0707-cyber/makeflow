@@ -1,8 +1,6 @@
 import {
   BaseEdge,
   type EdgeProps,
-  getBezierPath,
-  Position,
 } from "@xyflow/react";
 import { memo } from "react";
 import IconComponent from "@/components/common/genericIconComponent";
@@ -20,6 +18,27 @@ const UNRECOGNIZED_DOM_PROPS = [
   "sourcePosition",
   "pathOptions",
 ];
+
+const STEP_EDGE_OFFSET = 48;
+
+function getStepEdgePath({
+  sourceX,
+  sourceY,
+  targetX,
+  targetY,
+}: {
+  sourceX: number;
+  sourceY: number;
+  targetX: number;
+  targetY: number;
+}) {
+  const middleX =
+    sourceX <= targetX
+      ? sourceX + (targetX - sourceX) / 2
+      : Math.max(sourceX, targetX) + STEP_EDGE_OFFSET;
+
+  return `M ${sourceX} ${sourceY} H ${middleX} V ${targetY} H ${targetX}`;
+}
 
 export const DefaultEdge = memo(function DefaultEdge({
   sourceHandleId,
@@ -45,34 +64,12 @@ export const DefaultEdge = memo(function DefaultEdge({
     (sourceNode?.position.x ?? 0) + (sourceNode?.measured?.width ?? 0) + 7;
   const targetXNew = (targetNode?.position.x ?? 0) - 7;
 
-  const distance = 200 + 0.1 * ((sourceXNew - targetXNew) / 2);
-
-  const zeroOnNegative =
-    (1 +
-      (1 - Math.exp(-0.01 * Math.abs(sourceXNew - targetXNew))) *
-        (sourceXNew - targetXNew >= 0 ? 1 : -1)) /
-    2;
-
-  const distanceY =
-    200 -
-    200 * (1 - zeroOnNegative) +
-    0.3 * Math.abs(targetY - sourceY) * zeroOnNegative;
-
-  const sourceDistanceY =
-    200 -
-    200 * (1 - zeroOnNegative) +
-    0.3 * Math.abs(sourceY - targetY) * zeroOnNegative;
-
   const targetYNew = targetY + 1;
   const sourceYNew = sourceY + 1;
 
-  const edgePathLoop = `M ${sourceXNew} ${sourceYNew} C ${sourceXNew + distance} ${sourceYNew + sourceDistanceY}, ${targetXNew - distance} ${targetYNew + distanceY}, ${targetXNew} ${targetYNew}`;
-
-  const [edgePath] = getBezierPath({
+  const edgePath = getStepEdgePath({
     sourceX: sourceXNew,
     sourceY: sourceYNew,
-    sourcePosition: Position.Right,
-    targetPosition: Position.Left,
     targetX: targetXNew,
     targetY: targetYNew,
   });
@@ -89,7 +86,7 @@ export const DefaultEdge = memo(function DefaultEdge({
   return (
     <>
       <BaseEdge
-        path={targetHandleObject.output_types ? edgePathLoop : edgePath}
+        path={edgePath}
         strokeDasharray={targetHandleObject.output_types ? "5 5" : "0"}
         {...domSafeProps}
         data-animated={animated ? "true" : "false"}
@@ -102,7 +99,7 @@ export const DefaultEdge = memo(function DefaultEdge({
         <ContextMenuTrigger asChild>
           <path
             className="react-flow__edge-interaction"
-            d={targetHandleObject.output_types ? edgePathLoop : edgePath}
+            d={edgePath}
             strokeOpacity={0}
             strokeWidth={20}
             fill="none"

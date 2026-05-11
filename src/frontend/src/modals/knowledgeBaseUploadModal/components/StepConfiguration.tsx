@@ -21,7 +21,6 @@ import {
 import { cn } from "@/utils/utils";
 import { ACCEPTED_FILE_TYPES } from "../constants";
 import type { ColumnConfigRow } from "../types";
-import { ColumnConfig } from "./columnConfig/ColumnConfig";
 
 interface StepConfigurationProps {
   isAddSourcesMode: boolean;
@@ -265,7 +264,7 @@ export function StepConfiguration({
                           </span>
                         </TooltipTrigger>
                         <TooltipContent className="max-w-[260px]">
-                          Configure column behavior for the knowledge base.
+                          Knowledge Base에서 각 컬럼이 동작하는 방식을 설정합니다.
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>

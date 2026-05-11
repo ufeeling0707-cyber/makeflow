@@ -13,6 +13,12 @@ def test_superuser_password_is_secretstr(auto_login, tmp_path: Path):
     assert isinstance(settings.SUPERUSER_PASSWORD, SecretStr)
 
 
+def test_auto_login_defaults_to_false(tmp_path: Path):
+    cfg_dir = tmp_path.as_posix()
+    settings = AuthSettings(CONFIG_DIR=cfg_dir)
+    assert settings.AUTO_LOGIN is False
+
+
 def test_auto_login_true_forces_default_and_scrubs_password(tmp_path: Path):
     cfg_dir = tmp_path.as_posix()
     settings = AuthSettings(

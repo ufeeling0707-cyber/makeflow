@@ -31,7 +31,7 @@ const KnowledgeBaseDrawer = ({
         <div className="flex flex-col gap-4">
           <div className="px-4">
             <div className="text-sm text-muted-foreground">
-              No description available.
+              등록된 설명이 없습니다.
             </div>
           </div>
 
@@ -49,14 +49,14 @@ const KnowledgeBaseDrawer = ({
           <div className="space-y-3 px-4">
             <h4 className="text-sm font-medium">Source Files</h4>
             <div className="text-sm text-muted-foreground">
-              No source files available.
+              등록된 Source File이 없습니다.
             </div>
           </div>
 
           <div className="space-y-3 px-4">
             <h4 className="text-sm font-medium">Linked Flows</h4>
             <div className="text-sm text-muted-foreground">
-              No linked flows available.
+              연결된 Flow가 없습니다.
             </div>
           </div>
         </div>

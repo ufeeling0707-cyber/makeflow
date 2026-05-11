@@ -71,17 +71,7 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
             MCP Server
           </div>
           <div className="pb-4 text-mmd text-muted-foreground">
-            Access your Project's flows as Tools within a MCP Server. Learn more
-            in our
-            <a
-              className="text-accent-pink-foreground"
-              href="https://docs.langflow.org/mcp-server"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {" "}
-              Projects as MCP Servers guide.
-            </a>
+            Project의 Workflow를 MCP Server Tool로 연결해 사용할 수 있습니다.
           </div>
         </div>
       </div>

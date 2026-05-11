@@ -69,11 +69,11 @@ class AuthSettings(BaseSettings):
     )
 
     AUTO_LOGIN: bool = Field(
-        default=True,  # TODO: Set to False in v2.0
+        default=False,
         description=(
             "Enable automatic login with default credentials. "
             "SECURITY WARNING: This bypasses authentication and should only be used in development environments. "
-            "Set to False in production. This will default to False in v2.0."
+            "Defaults to False so users start at the login form unless explicitly enabled."
         ),
     )
     """If True, the application will attempt to log in automatically as a super user."""

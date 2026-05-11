@@ -19,8 +19,11 @@ import FlowSettingsModal from "@/modals/flowSettingsModal";
 import useAlertStore from "@/stores/alertStore";
 import type { FlowType } from "@/types/flow";
 import { downloadFlow } from "@/utils/reactflowUtils";
-import { swatchColors } from "@/utils/styleUtils";
-import { cn, getNumberFromString } from "@/utils/utils";
+import {
+  getTemplateIcon,
+  templateIconTileClassName,
+} from "@/utils/templateDisplay";
+import { cn } from "@/utils/utils";
 import useDescriptionModal from "../../hooks/use-description-modal";
 import { useGetTemplateStyle } from "../../utils/get-template-style";
 import { timeElapsed } from "../../utils/time-elapse";
@@ -83,12 +86,6 @@ const ListComponent = ({
     flowData.is_component ? "component" : "flow",
   );
 
-  const swatchIndex =
-    (flowData.gradient && !isNaN(parseInt(flowData.gradient))
-      ? parseInt(flowData.gradient)
-      : getNumberFromString(flowData.gradient ?? flowData.id)) %
-    swatchColors.length;
-
   const handleExport = () => {
     if (flowData.is_component) {
       downloadFlow(flowData, flowData.name, flowData.description);
@@ -142,14 +139,14 @@ const ListComponent = ({
             <div
               className={cn(
                 `item-center flex justify-center rounded-lg p-1.5 transition-opacity duration-200`,
-                swatchColors[swatchIndex],
+                templateIconTileClassName,
                 selected
                   ? "duration-300"
                   : "group-hover/checkbox:pointer-events-none group-hover/checkbox:opacity-0",
               )}
             >
               <ForwardedIconComponent
-                name={flowData?.icon || icon}
+                name={getTemplateIcon(flowData.name, flowData?.icon || icon)}
                 aria-hidden="true"
                 className="flex h-5 w-5 items-center justify-center"
               />

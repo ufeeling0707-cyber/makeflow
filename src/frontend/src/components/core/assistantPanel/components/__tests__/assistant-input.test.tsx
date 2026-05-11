@@ -19,7 +19,7 @@ jest.mock("../../helpers/messages", () => ({
 }));
 
 jest.mock("../../assistant-panel.constants", () => ({
-  getAssistantPlaceholder: () => "Ask me anything about Langflow...",
+  getAssistantPlaceholder: () => "MakeFlow 사용 방법을 질문하세요...",
 }));
 
 describe("AssistantInput", () => {
@@ -38,7 +38,7 @@ describe("AssistantInput", () => {
       render(<AssistantInput {...defaultProps} />);
 
       expect(
-        screen.getByPlaceholderText("Ask me anything about Langflow..."),
+        screen.getByPlaceholderText("MakeFlow 사용 방법을 질문하세요..."),
       ).toBeInTheDocument();
     });
 

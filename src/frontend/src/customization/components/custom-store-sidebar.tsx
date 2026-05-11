@@ -8,7 +8,7 @@ export const CustomStoreSidebar = (
 
   if (hasApiKey) {
     items.push({
-      title: "Langflow API Keys",
+      title: "MakeFlow Access Keys",
       href: "/settings/api-keys",
       icon: (
         <ForwardedIconComponent
@@ -21,7 +21,7 @@ export const CustomStoreSidebar = (
 
   if (hasStore) {
     items.push({
-      title: "Langflow Store",
+      title: "Template Hub",
       href: "/settings/store",
       icon: (
         <ForwardedIconComponent

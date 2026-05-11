@@ -64,16 +64,8 @@ export function SaveChangesModal({
               <ForwardedIconComponent name="Info" className="h-5 w-5" />
               Last saved: {lastSaved ?? "Never"}
             </div>
-            Unsaved changes will be permanently lost.{" "}
-            <a
-              target="_blank"
-              className="text-accent-pink-foreground hover:underline"
-              href="https://docs.langflow.org/environment-variables#visual-editor-and-playground-behavior"
-              rel="noopener"
-            >
-              Enable auto-saving
-            </a>{" "}
-            to avoid losing progress.
+            저장되지 않은 변경사항은 영구적으로 사라집니다. 진행 상황을 잃지
+            않도록 자동 저장 설정을 확인하세요.
           </>
         )}
       </ConfirmationModal.Content>

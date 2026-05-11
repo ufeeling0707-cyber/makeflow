@@ -41,7 +41,7 @@ export default function ReviewPhaseContent({
       <DialogHeader>
         <DialogTitle>Review Update</DialogTitle>
         <DialogDescription>
-          Review the version change before updating the deployment.
+          Deployment를 업데이트하기 전에 버전 변경 사항을 확인합니다.
         </DialogDescription>
       </DialogHeader>
 

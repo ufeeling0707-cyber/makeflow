@@ -61,7 +61,7 @@ export default function OutputModal({
       size="large"
       className="z-50"
     >
-      <BaseModal.Header description="Inspect the output of the component below.">
+      <BaseModal.Header description="아래 컴포넌트의 출력을 확인합니다.">
         <div
           className="flex items-center"
           data-testid={`${nodeId}-${outputName}-output-modal`}

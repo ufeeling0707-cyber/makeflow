@@ -1,10 +1,6 @@
 import type React from "react";
-import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Loading from "@/components/ui/loading";
-import IconComponent from "../../../../../../components/common/genericIconComponent";
-import { ICON_STROKE_WIDTH } from "../../../../../../constants/constants";
-import { cn } from "../../../../../../utils/utils";
 
 interface NoInputViewProps {
   isBuilding: boolean;
@@ -47,16 +43,7 @@ const NoInputView: React.FC<NoInputViewProps> = ({
         )}
 
         <p className="text-muted-foreground">
-          Add a{" "}
-          <a
-            className="underline underline-offset-4"
-            target="_blank"
-            href="https://docs.langflow.org/components-io#chat-input"
-            rel="noopener"
-          >
-            Chat Input
-          </a>{" "}
-          component to your flow to send messages.
+          Chat Input Block을 추가하면 Test Run에서 메시지를 보낼 수 있습니다.
         </p>
       </div>
     </div>

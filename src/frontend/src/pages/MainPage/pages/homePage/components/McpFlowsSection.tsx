@@ -16,7 +16,7 @@ export const McpFlowsSection = ({
   <div className="w-full xl:w-2/5">
     <div className="flex flex-row justify-between pt-1">
       <ShadTooltip
-        content="Flows in this project can be exposed as callable MCP tools."
+        content="이 프로젝트의 Flow를 호출 가능한 MCP Tool로 공개할 수 있습니다."
         side="right"
       >
         <div className="flex items-center text-sm font-medium hover:cursor-help">
@@ -33,10 +33,10 @@ export const McpFlowsSection = ({
       <ToolsComponent
         value={flowsMCPData}
         title="MCP Server Tools"
-        description="Select tools to add to this server"
+        description="이 서버에 추가할 Tool을 선택합니다"
         handleOnNewValue={handleOnNewValue}
         id="mcp-server-tools"
-        button_description="Edit Tools"
+        button_description="Tool 편집"
         editNode={false}
         isAction
         disabled={false}

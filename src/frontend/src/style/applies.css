@@ -323,7 +323,21 @@
     @apply grid w-full gap-4 p-4 md:grid-cols-2 lg:grid-cols-4;
   }
   .generic-node-div {
-    @apply flex flex-col justify-center bg-background transition-all;
+    @apply flex flex-col justify-center transition-all;
+    background: #f7f7f8;
+    border-color: #8a8f98 !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08) !important;
+  }
+  .generic-node-div:hover {
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12) !important;
+  }
+  .makeflow-node-header {
+    background: #ffffff;
+    border-radius: 6px 6px 0 0;
+  }
+  .makeflow-node .border-b {
+    border-color: #b8bdc5 !important;
   }
   .generic-node-validation-div {
     @apply max-h-96 overflow-auto;
